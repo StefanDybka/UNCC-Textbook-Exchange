@@ -1,1 +1,27 @@
 <h1>New Listing</h1>
+<%= form_for :listing, url: listings_path do |f| %>
+
+<p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+</p>
+
+<p>
+    <%= f.label :isbn %><br>
+    <%= f.number_field :isbn %>
+</p>
+
+<p>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+</p>
+
+<p>
+    <%= f.label :condition %><br>
+    <%= f.text_field :condition %>
+</p>
+
+<p>
+    <%= f.submit %>
+</p>
+<% end %>
