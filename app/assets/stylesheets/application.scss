@@ -11,4 +11,10 @@
  * It is generally better to create a new file per style scope.
  */
 
+$primary: #046A38;
+
+html body {
+    background-color: #f6f5f3;
+}
+
 @import 'bootstrap';
