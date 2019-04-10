@@ -5,29 +5,29 @@
     </div>
     
     <div class="row justify-content-center w-100">
-    <%= form_for :user, url: users_path do |f| %>
+    <%= form_for :user, :html => { :class => "justify-content-center w-50" }, url: users_path do |f| %>
         <div class="m-2">
             <%= f.label :name %><br>
-            <%= f.text_field :name %>
+            <%= f.text_field :name, :class => 'w-100' %>
         </div>
     
         <div class="m-2">
             <%= f.label :email %><br>
-            <%= f.text_field :email %>
+            <%= f.text_field :email, :class => 'w-100' %>
         </div>
 
         <div class="m-2">
             <%= f.label :password %><br>
-            <%= f.password_field :password %>
+            <%= f.password_field :password, :class => 'w-100' %>
         </div>
 
         <div class="m-2">
             <%= f.label :password_confirmation %><br>
-            <%= f.password_field :password_confirmation %>
+            <%= f.password_field :password_confirmation, :class => 'w-100' %>
         </div>
     
         <div class="row justify-content-center m-2">
-            <%= f.submit :Submit, :class => "btn btn-outline-primary" %>
+            <%= f.submit :Submit, :class => "btn btn-outline-primary w-50" %>
         </div>
     <% end %>
     </div>
