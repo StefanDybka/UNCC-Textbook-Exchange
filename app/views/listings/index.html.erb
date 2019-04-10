@@ -1,0 +1,20 @@
+<h1>Listing Books</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>ISBN</th>
+    <th>Email</th>
+    <th>Condition</th>
+  </tr>
+ 
+  <% @listings.each do |listing| %>
+    <tr>
+      <td><%= listing.name %></td>
+      <td><%= listing.isbn %></td>
+      <td><%= listing.email %></td>
+      <td><%= listing.condition %></td>
+      <td><%= link_to 'Show', listing_path(listing) %></td>
+    </tr>
+  <% end %>
+</table>
