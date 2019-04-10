@@ -17,6 +17,11 @@ ActiveRecord::Schema.define(version: 2019_04_09_203041) do
     t.integer "isbn"
     t.string "email"
     t.string "condition"
+  end
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

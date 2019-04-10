@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row justify-content-center bg-white shadow p-3 m-4">
+    <div class="row justify-content-center w-100">
+        <h1 class="text-primary">New UNCC User</h1>
+    </div>
+    
+    <div class="row justify-content-center w-100">
+    <%= form_for :user, url: users_path do |f| %>
+        <div class="m-2">
+            <%= f.label :name %><br>
+            <%= f.text_field :name %>
+        </div>
+    
+        <div class="m-2">
+            <%= f.label :email %><br>
+            <%= f.text_field :email %>
+        </div>
+
+        <div class="m-2">
+            <%= f.label :password %><br>
+            <%= f.password_field :password %>
+        </div>
+
+        <div class="m-2">
+            <%= f.label :password_confirmation %><br>
+            <%= f.password_field :password_confirmation %>
+        </div>
+    
+        <div class="row justify-content-center m-2">
+            <%= f.submit :Submit, :class => "btn btn-outline-primary" %>
+        </div>
+    <% end %>
+    </div>
+    </div>
+</div>
