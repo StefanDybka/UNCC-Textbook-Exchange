@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
     def index
         @listings = Listing.all
     end
+    
     def create
         @listing = Listing.new(listing_params)
         
@@ -18,10 +19,17 @@ class ListingsController < ApplicationController
             render 'new'
         end
     end
+    
     def show
         @listing = Listing.find(params[:id])
     end
     
+    def destroy
+        @listing = Listing.find(params[:id])
+        @listing.destroy
+        
+        redirect_to listings_path
+    end
 end
 
 private 

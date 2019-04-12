@@ -16,6 +16,12 @@
       <td><%= listing.email %>&nbsp;</td>
       <td><%= listing.condition %>&nbsp;</td>
       <td><%= link_to 'Show', listing_path(listing) %>&nbsp;</td>
+      <td><%= link_to 'Delete', 
+        listing_path(listing), 
+        method: :delete, 
+        data: { confirm: 'Are you sure?'}
+        %>
+        </td>
     </tr>
   <% end %>
 </table>
