@@ -2,19 +2,21 @@
  
 <table>
   <tr>
-    <th>Name</th>
-    <th>ISBN</th>
-    <th>Email</th>
-    <th>Condition</th>
+    <th>Name&nbsp;</th>
+    <th>ISBN&nbsp;</th>
+    <th>Email&nbsp;</th>
+    <th>Condition&nbsp;</th>
+    <th>Link&nbsp;</th>
   </tr>
  
   <% @listings.each do |listing| %>
     <tr>
-      <td><%= listing.name %></td>
-      <td><%= listing.isbn %></td>
-      <td><%= listing.email %></td>
-      <td><%= listing.condition %></td>
-      <td><%= link_to 'Show', listing_path(listing) %></td>
+      <td><%= listing.name %>&nbsp;</td>
+      <td><%= listing.isbn %>&nbsp;</td>
+      <td><%= listing.email %>&nbsp;</td>
+      <td><%= listing.condition %>&nbsp;</td>
+      <td><%= link_to 'Show', listing_path(listing) %>&nbsp;</td>
     </tr>
   <% end %>
 </table>
+<%= link_to 'Home', root_url %>

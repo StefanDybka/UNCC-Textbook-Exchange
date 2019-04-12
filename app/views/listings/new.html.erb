@@ -1,27 +1,42 @@
 <h1>New Listing</h1>
 <%= form_for :listing, url: listings_path do |f| %>
 
-<p>
+  <% if @listing.errors.any? %>
+    <div id="error_explanation">
+      <h3>
+        <%= pluralize(@listing.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h3>
+      <ul>
+        <% @listing.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
-</p>
+  </p>
 
-<p>
+  <p>
     <%= f.label :isbn %><br>
     <%= f.number_field :isbn %>
-</p>
+  </p>
 
-<p>
+  <p>
     <%= f.label :email %><br>
     <%= f.email_field :email %>
-</p>
+  </p>
 
-<p>
+  <p>
     <%= f.label :condition %><br>
     <%= f.text_field :condition %>
-</p>
+  </p>
 
-<p>
+  <p>
+    <%= f.submit :Back %>
     <%= f.submit %>
-</p>
+  </p>
 <% end %>
