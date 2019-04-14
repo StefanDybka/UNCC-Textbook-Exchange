@@ -1,28 +1,37 @@
-<h1>Listing Books</h1>
+<div class="container">
+  <div class="row justify-content-center bg-white shadow p-3 m-4">
+    <div class="row justify-content-center w-100">
+      <h1>Listings</h1>
+    </div>
  
-<table>
-  <tr>
-    <th>Name&nbsp;</th>
-    <th>ISBN&nbsp;</th>
-    <th>Email&nbsp;</th>
-    <th>Condition&nbsp;</th>
-    <th>Link&nbsp;</th>
-  </tr>
+   <div class="table-responsive">
+    <table class="table table-hover">
+      <tr>
+        <th>Name</th>
+        <th>ISBN</th>
+        <th>Email</th>
+        <th>Condition</th>
+        <th>Link</th>
+        <th>Delete</th>
+      </tr>
  
-  <% @listings.each do |listing| %>
-    <tr>
-      <td><%= listing.name %>&nbsp;</td>
-      <td><%= listing.isbn %>&nbsp;</td>
-      <td><%= listing.email %>&nbsp;</td>
-      <td><%= listing.condition %>&nbsp;</td>
-      <td><%= link_to 'Show', listing_path(listing) %>&nbsp;</td>
-      <td><%= link_to 'Delete', 
-        listing_path(listing), 
-        method: :delete, 
-        data: { confirm: 'Are you sure?'}
-        %>
-        </td>
-    </tr>
-  <% end %>
-</table>
-<%= link_to 'Home', root_url %>
+      <% @listings.each do |listing| %>
+        <tr>
+          <td><%= listing.name %></td>
+          <td><%= listing.isbn %></td>
+          <td><%= listing.email %></td>
+          <td><%= listing.condition %></td>
+          <td><%= link_to 'Show', listing_path(listing) %></td>
+          <td><%= link_to 'Delete', 
+            listing_path(listing), 
+            method: :delete, 
+            data: { confirm: 'Are you sure?'}
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <%= link_to 'Home', root_url %>
+    </div>
+  </div>
+</div">
