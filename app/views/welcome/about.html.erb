@@ -1,0 +1,29 @@
+<div class="container">
+    <!-- Main Page -->
+    <div class="row shadow bg-white justify-content-center p-3 m-4">
+        <!-- Title Text -->
+        <div class="row justify-content-center">
+            <h1 class="text-center text-primary">About UNCC Textbook Exchange</h1>
+            <h2 class="text-center">Swap, Sell, and Purchase Textbooks</h2>
+        </div>
+        
+        
+        <div class="row justify-content-center w-100 pt-5">
+            
+            <!-- Navigation Buttons -->
+            <div class="col-2">
+                <%= button_to 'Home', root_url, :class =>"btn btn-outline-primary btn-block mb-2", :method => :get %>
+                <%= button_to 'View Listings', listings_url, :class => 'btn btn-outline-primary btn-block mb-2', :method => :get %>
+                <%= button_to 'New Listing', new_listing_url, :class => 'btn btn-outline-primary btn-block mb-2', :method => :get %>
+                <%= button_to 'Edit Listings', root_path, :class => 'btn btn-outline-primary btn-block mb-2', :method => :get %>
+                <%= button_to 'Help', root_path, :class => 'btn btn-outline-primary btn-block', :method => :get %>
+            </div>
+            
+            <!-- About Paragraph -->
+            <div class="col">
+                <p>
+                    Paragraph about this website
+                </p>
+            </div>
+    </div>
+</div>
