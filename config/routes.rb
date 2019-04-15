@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   post    '/login',   to: 'sessions#create'
   delete  '/logout',  to: 'sessions#destroy'
   get 'welcome/index'
+  get     '/help', to: 'help#show'
 
   resources :listings
   resources :users
-  
+
 end
