@@ -6,8 +6,5 @@ Rails.application.routes.draw do
 
   resources :listings
   resources :users
-<<<<<<< HEAD
 
-=======
->>>>>>> 1608fc774404ebd06baafd202bae11b1a5fad988
 end
