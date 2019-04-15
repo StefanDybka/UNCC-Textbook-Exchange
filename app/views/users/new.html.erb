@@ -1,40 +1,24 @@
-<div class="container">
-    <div class="row justify-content-center bg-white shadow p-3 m-4">
-        <div class="row justify-content-center w-100">
-            <h1 class="text-primary">New UNCC User</h1>
-        </div>
-        
-        <div class="row justify-content-center w-100">
-            <%= form_for :user, :html => { :class => "justify-content-center w-50" }, url: users_path do |f| %>
-                <div class="m-2">
-                    <%= f.label :name %><br>
-                    <%= f.text_field :name, :class => 'w-100' %>
-                </div>
-            
-                <div class="m-2">
-                    <%= f.label :email %><br>
-                    <%= f.text_field :email, :class => 'w-100' %>
-                </div>
-        
-                <div class="m-2">
-                    <%= f.label :password %><br>
-                    <%= f.password_field :password, :class => 'w-100' %>
-                </div>
-        
-                <div class="m-2">
-                    <%= f.label :password_confirmation %><br>
-                    <%= f.password_field :password_confirmation, :class => 'w-100' %>
-                </div>
-            
-                <div class="row justify-content-center m-2">
-                    <div class="col">
-                        <%= f.submit :Back, :class => "btn btn-outline-primary btn-block" %>
-                    </div>
-                    <div class="col">
-                        <%= f.submit :Submit, :class => "btn btn-primary btn-block" %>
-                    </div>
-                </div>
-            <% end %>
-        </div>
-    </div>
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+    
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
