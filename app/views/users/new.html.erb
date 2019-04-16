@@ -1,24 +1,33 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<div class='container'>
+  <div class='row shadow bg-white justify-content-center p-3 m-4'>
+    
+    <!-- title text -->
+    <div class='row justify-content-center w-100'>
+      <% provide(:title, 'Sign up') %>
+      <h1 class='text-primary'>Sign up</h1>
+    </div>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class="row w-50 justify-content-center pt-4">
+  <div class="w-100">
     <%= form_for(@user, url: signup_path) do |f| %>
       <%= render 'shared/error_messages' %>
     
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
 
-      <%= f.label :email %>
+      <%= f.label :email, class: 'pt-2' %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :password %>
+      <%= f.label :password, class: 'pt-2' %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "Confirmation", class: 'pt-2' %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <%= f.submit "Create my account", class: "btn btn-primary btn-block mt-3" %>
+      <p class='pt-1'>Already have an account? <%= link_to "Log in now!", login_path %></p>
     <% end %>
+  </div>
+</div>
   </div>
 </div>

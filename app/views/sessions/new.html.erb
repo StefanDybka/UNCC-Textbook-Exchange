@@ -12,10 +12,10 @@
         <%= form_for(:session, url: login_path) do |f| %>
 
           <%= f.label :email %>
-          <%= f.email_field :email, class: 'form-control w-100' %>
+          <%= f.email_field :email, class: 'form-control' %>
 
           <%= f.label :password, class: 'pt-2' %>
-          <%= f.password_field :password, class: 'form-control w-100' %>
+          <%= f.password_field :password, class: 'form-control' %>
       
           <%= f.label :remember_me, class: "checkbox inline" do %>
             <%= f.check_box :remember_me %>
