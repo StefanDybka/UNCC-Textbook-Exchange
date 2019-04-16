@@ -10,37 +10,36 @@
   </head>
 
   <body>
-    <div class="container">
- <!-- Account Buttons -->
- <div class="d-flex">
-    <div class="mr-auto p-2">
-        <%= button_to :'Back', root_url, :class => "btn btn-outline-primary btn-block", :method => :get %>
-      </div>
-    
-      <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
-          <li><%= link_to "Users", '#' %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", '#' %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to 'UNCC Textbook Exchange', '#', :class => 'navbar-brand' %>
+      <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class='navbar-toggler-icon'></span>
+      </button>
+      
+      <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+        <ul class='navbar-nav mr-auto'>
+          <li class='nav-item'><%= link_to "Home", root_path, :class => 'nav-link text-primary' %></li>
+          <li class='nav-item'><%= link_to "Listings", listings_path, :class => 'nav-link text-primary' %></li>
+          <% if logged_in? %>
+            <li class='nav-item'><%= link_to "New Listing", new_listing_path, :class => 'nav-link text-primary' %></li>
+            <li class='nav-item'><%= link_to "Edit Listings", '#', :class => 'nav-link text-primary' %></li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle text-primary" id='navbarDropdown' role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account <b class="caret"></b></a>
+              <div class="dropdown-menu" aria-labelledby='navbarDropdown'>
+                <%= link_to "Profile", current_user, :class => 'dropdown-item text-primary' %>
+                <%= link_to "Settings", '#', :class => 'dropdown-item text-primary' %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Log out", logout_path, method: :delete, :class => 'dropdown-item text-primary' %>
+              </div>
+            </li>
+          <% else %>
+            <li class='nav-item'><%= link_to "Log in", login_path, :class => 'nav-link text-primary' %></li>
+          <% end %>
         </ul>
-</div>
-</div>
+      </div>
+    </nav>
 
-    
     <%= yield %>
   </body>
 </html>
