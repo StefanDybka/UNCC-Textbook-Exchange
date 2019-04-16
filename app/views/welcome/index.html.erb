@@ -11,10 +11,11 @@
         
         <!-- Navigation Buttons -->
         <div class="row justify-content-center w-60 btn-block">
-            <%= button_to 'Book List', listings_url, :class => "btn btn-outline-primary btn-block mt-3", :method => :get %>
-            <%= button_to 'Post Testbook', new_listing_url, :class => "btn btn-outline-primary btn-block mt-3", :method => :get %>
-            <%= button_to 'About', about_url, :class => "btn btn-outline-primary btn-block mt-3", :method => :get %>
-            <%= button_to 'Help', help_url, :class =>"btn btn-outline-primary btn-block mt-3", :method => :get %>
+            <%= button_to 'View All Listings', listings_path, :class => "btn btn-outline-primary btn-block mt-3", :method => :get %>
+            <%= button_to 'Post A New Listing', new_listing_path, :class => "btn btn-outline-primary btn-block mt-3", :method => :get %>
+            <%= button_to 'Edit Your Listings', root_path, :class => "btn btn-outline-primary btn-block mt-3", :method => :get %>
+            <%= button_to 'About UNCC Textbook Exchange', about_path, :class => "btn btn-outline-primary btn-block mt-3", :method => :get %>
+            <%= button_to 'Help', help_path, :class =>"btn btn-outline-primary btn-block mt-3", :method => :get %>
         </div>
     </div>
 </div>
