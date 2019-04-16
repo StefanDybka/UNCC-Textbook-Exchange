@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get '/about', to: 'welcome#about'
   get '/signup',to: 'users#new'
-  post'/signup',to: 'users#new'
+  post'/signup',to: 'users#create'
   get '/help',  to: 'help#show'
 
   resources :listings
