@@ -1,40 +1,28 @@
-<div class="container">
-    <div class="row justify-content-center bg-white shadow p-3 m-4">
-        <div class="row justify-content-center w-100">
-            <h1 class="text-primary">New UNCC User</h1>
-        </div>
-        
-        <div class="row justify-content-center w-100">
-            <%= form_for :user, :html => { :class => "justify-content-center w-50" }, url: users_path do |f| %>
-                <div class="m-2">
-                    <%= f.label :name %><br>
-                    <%= f.text_field :name, :class => 'w-100' %>
-                </div>
-            
-                <div class="m-2">
-                    <%= f.label :email %><br>
-                    <%= f.text_field :email, :class => 'w-100' %>
-                </div>
-        
-                <div class="m-2">
-                    <%= f.label :password %><br>
-                    <%= f.password_field :password, :class => 'w-100' %>
-                </div>
-        
-                <div class="m-2">
-                    <%= f.label :password_confirmation %><br>
-                    <%= f.password_field :password_confirmation, :class => 'w-100' %>
-                </div>
-            
-                <div class="row justify-content-center m-2">
-                    <div class="col">
-                        <%= f.submit :Back, :class => "btn btn-outline-primary btn-block" %>
-                    </div>
-                    <div class="col">
-                        <%= f.submit :Submit, :class => "btn btn-primary btn-block" %>
-                    </div>
-                </div>
-            <% end %>
-        </div>
-    </div>
+<!-- title text -->
+<div class='row justify-content-center w-100'>
+  <% provide(:title, 'Sign up') %>
+  <h1 class='text-primary'>Sign up</h1>
+</div>
+
+<div class="row w-50 justify-content-center pt-4">
+  <div class="w-100">
+    <%= form_for(@user, url: signup_path) do |f| %>
+      <%= render 'shared/error_messages' %>
+    
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email, class: 'pt-2' %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password, class: 'pt-2' %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation", class: 'pt-2' %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary btn-block mt-3" %>
+      <p class='pt-1'>Already have an account? <%= link_to "Log in now!", login_path %></p>
+    <% end %>
+  </div>
 </div>

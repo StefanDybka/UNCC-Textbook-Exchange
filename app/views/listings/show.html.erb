@@ -1,20 +1,21 @@
-<p>
-    <strong>Name:</strong>
-    <%= @listing.name %>
-</p>
+<div class="row w-100">
+    <h1>Name:</h1>
+    <%= @listing.title %>
+</div>
 
-<p>
-    <strong>ISBN:</strong>
+<div class="row w-100">
+    <h1>ISBN:</h1>
     <%= @listing.isbn %>
-</p>
+</div>
 
-<p>
-    <strong>Email:</strong>
+<div class="row w-100">
+    <h1>Email:</h1>
     <%= @listing.email %>
-</p>
+</div>
 
-<p>
-    <strong>Condition:</strong>
+<div class="row w-100">
+    <h1>Condition:</h1>
     <%= @listing.condition %>
-</p>
+</div>
+        
 <%= link_to 'Book List', listings_path %>
