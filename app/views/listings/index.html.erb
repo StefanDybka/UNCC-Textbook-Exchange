@@ -26,7 +26,7 @@
  
         <% @listings.each do |listing| %>
           <tr>
-            <td><%= listing.name %></td>
+            <td><%= listing.title %></td>
             <td><%= listing.isbn %></td>
             <td><%= listing.condition %></td>
             <td><%= link_to 'Show', listing_path(listing) %></td>

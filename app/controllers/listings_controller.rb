@@ -12,7 +12,7 @@ class ListingsController < ApplicationController
     
     def create
         @listing = Listing.new(listing_params)
-        
+        @listing.email = current_user.email
         if @listing.save
             redirect_to @listing
         else
@@ -34,7 +34,7 @@ end
 
 private 
     def listing_params
-        params.require(:listing).permit(:name, :isbn, :email, :condition)
+        params.require(:listing).permit(:title, :isbn, :condition)
     end
 
     def check_cancel
