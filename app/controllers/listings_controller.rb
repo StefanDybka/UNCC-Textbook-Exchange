@@ -11,14 +11,20 @@ class ListingsController < ApplicationController
     end
     
     def create
-        @listing = current_user.listings.build(listing_params)
-        
-        @listing.email = current_user.email
-        
-        if @listing.save
-            redirect_to @listing
+        if logged_in?
+
+            @listing = current_user.listings.build(listing_params)
+            
+            @listing.email = current_user.email
+            
+            if @listing.save
+                redirect_to @listing
+            else
+                render 'new'
+            end
         else
-            render 'new'
+            flash.now[:danger] = 'You must be logged in to perform that action'
+            redirect_to listings_path
         end
     end
     
