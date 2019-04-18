@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_04_14_205251) do
-=======
-ActiveRecord::Schema.define(version: 2019_04_17_151844) do
->>>>>>> 6a970c8bcad777abae56186ac47255ff03693204
+ActiveRecord::Schema.define(version: 2019_04_18_130849) do
 
   create_table "listings", force: :cascade do |t|
     t.string "title"
@@ -23,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_151844) do
     t.string "condition"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "reports", force: :cascade do |t|
