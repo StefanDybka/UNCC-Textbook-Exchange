@@ -11,8 +11,10 @@ class ListingsController < ApplicationController
     end
     
     def create
-        @listing = Listing.new(listing_params)
+        @listing = current_user.listings.build(listing_params)
+        
         @listing.email = current_user.email
+        
         if @listing.save
             redirect_to @listing
         else
