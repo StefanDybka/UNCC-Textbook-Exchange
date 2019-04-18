@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_130849) do
+ActiveRecord::Schema.define(version: 2019_04_18_190806) do
 
   create_table "listings", force: :cascade do |t|
     t.string "title"
-    t.integer "isbn"
+    t.string "isbn"
     t.string "email"
     t.string "condition"
     t.datetime "created_at", null: false
