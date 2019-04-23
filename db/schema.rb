@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_04_23_170355) do
     t.boolean "activated", default: false
     t.datetime "activated_at"
     t.string "lname"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
