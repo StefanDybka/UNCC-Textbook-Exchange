@@ -64,6 +64,19 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "uncc-textbook-exchange_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  # Do care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => '159e17e6ea1c4ec99a23785aa3726fe4.vfs.cloud9.us-east-2.amazonaws.com', :protocol => 'https' }
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'apikey',
+    :password => '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',
+    :domain => '159e17e6ea1c4ec99a23785aa3726fe4.vfs.cloud9.us-east-2.amazonaws.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

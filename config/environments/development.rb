@@ -32,10 +32,17 @@ Rails.application.configure do
 
   # Do care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :test
-  host = 'localhost:3000'
-  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
-  config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => '159e17e6ea1c4ec99a23785aa3726fe4.vfs.cloud9.us-east-2.amazonaws.com', :protocol => 'https' }
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'apikey',
+    :password => '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',
+    :domain => '159e17e6ea1c4ec99a23785aa3726fe4.vfs.cloud9.us-east-2.amazonaws.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
