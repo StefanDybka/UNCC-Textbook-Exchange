@@ -2,8 +2,11 @@
   <h1 class="text-primary">Book Listings</h1>
 </div>
     
-<div class="d-flex flex-row">
-  <%= text_field :search, nil, :placeholder => "Search Listings", :class => "form-control mb-2" %>
+<div class="col-3 p-0">
+  <%= form_tag(listings_path method: :get) do %>
+    <%= text_field_tag :search, params[:store], :placeholder => "Search Listings", :class => "form-control mb-2" %>
+    <%= submit_tag 'Search', :class => 'btn btn-primary', name: nil %>
+  <% end %>
   <% if logged_in? %>
     <%= button_to 'New', new_listing_url, :class => 'btn btn-outline-primary btn-block mb-2', :method => :get %>
   <% end %>
@@ -14,7 +17,7 @@
     <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover table-condensed">
         <tr>
-          <th>Name</th>
+          <th>Title</th>
           <th>ISBN</th>
           <th>Condition</th>
           <th></th>

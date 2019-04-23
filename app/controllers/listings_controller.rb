@@ -7,13 +7,17 @@ class ListingsController < ApplicationController
     end
     
     def index
-        @listings = Listing.all
+        if params[:search]
+            @listings = Listing.where('title LIKE ?', "%#{params[:search]}%")
+        else
+            @listings = Listing.all
+        end
     end
     
     def create
         if logged_in?
 
-            @listing = current_user.listings.build(listing_params)
+            @listing = current_user.listings.build(listings_params)
             
             @listing.email = current_user.email
             
@@ -41,8 +45,8 @@ class ListingsController < ApplicationController
 end
 
 private 
-    def listing_params
-        params.require(:listing).permit(:title, :isbn, :condition)
+    def listings_params
+        params.require(:listing).permit(:title, :isbn, :condition, :search)
     end
 
     def check_cancel
