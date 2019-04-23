@@ -10,15 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_04_17_151844) do
+=======
+ActiveRecord::Schema.define(version: 2019_04_18_190806) do
+>>>>>>> 46fc176add7ab7dd1877dbca04bed2bfab8b9535
 
   create_table "listings", force: :cascade do |t|
     t.string "title"
-    t.integer "isbn"
+    t.string "isbn"
     t.string "email"
     t.string "condition"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "reports", force: :cascade do |t|

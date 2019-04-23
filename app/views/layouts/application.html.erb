@@ -19,22 +19,14 @@
       
       <div class='collapse navbar-collapse' id='navbarSupportedContent'>
         <ul class='navbar-nav ml-auto'>
-          <li class='nav-item'><%= link_to "Home", root_path, :class => 'nav-link active' %></li>
           <li class='nav-item'><%= link_to "Listings", listings_path, :class => 'nav-link active' %></li>
           <% if logged_in? %>
             <li class='nav-item'><%= link_to "New Listing", new_listing_path, :class => 'nav-link active' %></li>
-            <li class='nav-item'><%= link_to "Edit Listings", '#', :class => 'nav-link active' %></li>
-            <li class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle active" id='navbarDropdown' role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-              <div class="dropdown-menu" aria-labelledby='navbarDropdown'>
-                <%= link_to "Profile", current_user, :class => 'dropdown-item' %>
-                <%= link_to "Settings", '#', :class => 'dropdown-item' %>
-                <div class="dropdown-divider"></div>
-                <%= link_to "Log out", logout_path, method: :delete, :class => 'dropdown-item' %>
-              </div>
-            </li>
+            <li class='nav-item'><%= link_to "Your Account", current_user, :class => 'nav-link active' %></li>
+            <li class='nav-item'><%= link_to "Log Out", logout_path, method: :delete, :class => 'nav-link active' %></li>
+          </li>
           <% else %>
-            <li class='nav-item'><%= link_to "Log in", login_path, :class => 'nav-link active' %></li>
+            <li class='nav-item'><%= link_to "Log In", login_path, :class => 'nav-link active' %></li>
           <% end %>
         </ul>
       </div>

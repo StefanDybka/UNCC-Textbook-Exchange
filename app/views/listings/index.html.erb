@@ -2,14 +2,14 @@
   <h1 class="text-primary">Book Listings</h1>
 </div>
     
-<div class="row justify-content-end w-100 m-2">
-  <%= text_field :search, nil, :placeholder => "Search Listings", :class => "form-control" %>
-</div>
-    
-<div class="col-2">
-  <%= button_to 'Home', root_path, :class => 'btn btn-outline-primary btn-block mb-2', :method => :get %>
-  <%= button_to 'New Listing', new_listing_url, :class => 'btn btn-outline-primary btn-block mb-2', :method => :get %>
-  <%= button_to 'Edit Listings', root_path, :class => 'btn btn-outline-primary btn-block', :method => :get %>
+<div class="col-3 p-0">
+  <%= form_tag(listings_path method: :get) do %>
+    <%= text_field_tag :search, params[:store], :placeholder => "Search Listings", :class => "form-control mb-2" %>
+    <%= submit_tag 'Search', :class => 'btn btn-primary', name: nil %>
+  <% end %>
+  <% if logged_in? %>
+    <%= button_to 'New', new_listing_url, :class => 'btn btn-outline-primary btn-block mb-2', :method => :get %>
+  <% end %>
 </div>
     
 <div class="col">
@@ -17,9 +17,10 @@
     <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover table-condensed">
         <tr>
-          <th>Name</th>
+          <th>Title</th>
           <th>ISBN</th>
           <th>Condition</th>
+<<<<<<< HEAD
           <th>Report</th>
           <th>Link</th>
           <th>Delete</th>
@@ -36,6 +37,12 @@
                 data: { confirm: 'Are you sure?'} %></td>
           </tr>
         <% end %>
+=======
+          <th></th>
+        </tr>
+ 
+        <%= render @listings %>
+>>>>>>> 46fc176add7ab7dd1877dbca04bed2bfab8b9535
       </table>
     </div>
   </div>

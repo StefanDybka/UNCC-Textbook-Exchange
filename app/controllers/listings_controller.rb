@@ -7,16 +7,28 @@ class ListingsController < ApplicationController
     end
     
     def index
-        @listings = Listing.all
+        if params[:search]
+            @listings = Listing.where('title LIKE ?', "%#{params[:search]}%")
+        else
+            @listings = Listing.all
+        end
     end
     
     def create
-        @listing = Listing.new(listing_params)
-        @listing.email = current_user.email
-        if @listing.save
-            redirect_to @listing
+        if logged_in?
+
+            @listing = current_user.listings.build(listings_params)
+            
+            @listing.email = current_user.email
+            
+            if @listing.save
+                redirect_to @listing
+            else
+                render 'new'
+            end
         else
-            render 'new'
+            flash.now[:danger] = 'You must be logged in to perform that action'
+            redirect_to listings_path
         end
     end
     
@@ -33,8 +45,8 @@ class ListingsController < ApplicationController
 end
 
 private 
-    def listing_params
-        params.require(:listing).permit(:title, :isbn, :condition)
+    def listings_params
+        params.require(:listing).permit(:title, :isbn, :condition, :search)
     end
 
     def check_cancel
