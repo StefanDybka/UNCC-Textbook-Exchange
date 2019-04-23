@@ -20,6 +20,7 @@
           <th>Name</th>
           <th>ISBN</th>
           <th>Condition</th>
+          <th>Report</th>
           <th>Link</th>
           <th>Delete</th>
         </tr>
@@ -29,6 +30,7 @@
             <td><%= listing.title %></td>
             <td><%= listing.isbn %></td>
             <td><%= listing.condition %></td>
+            <td><%= link_to 'Report', new_report_path(listing), method: :get %></td>
             <td><%= link_to 'Show', listing_path(listing) %></td>
             <td><%= link_to 'Delete', listing_path(listing), method: :delete, 
                 data: { confirm: 'Are you sure?'} %></td>
