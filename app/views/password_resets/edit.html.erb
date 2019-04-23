@@ -1,2 +1,24 @@
-<h1>PasswordResets#edit</h1>
-<p>Find me in app/views/password_resets/edit.html.erb</p>
+<!-- title text -->
+<div class='row justify-content-center w-100'>
+  <% provide(:title, 'Reset Password') %>
+  <h1 class='text-primary'>Reset Password</h1>
+</div>
+
+<div class="row w-50 justify-content-center pt-4">
+  <div class="w-100">
+    <%= form_for(@user = User.find(params[:id])) do |f| %>
+      <%= render 'shared/error_messages' %>
+      
+      <%= f.label :password, 'Old Password', class: 'pt-2' %>
+      <%= f.password_field :password, class: 'form-control' %>
+      
+      <%= f.label :password, 'New Password', class: 'pt-2' %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirm Password", class: 'pt-2' %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Reset Password", class: "btn btn-primary btn-block mt-3" %>
+    <% end %>
+  </div>
+</div>
