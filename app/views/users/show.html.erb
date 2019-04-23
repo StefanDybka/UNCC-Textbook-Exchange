@@ -1,11 +1,12 @@
 <div class= 'col-3'>
   <h2 class='text-primary'>User Info</h2>
   <h3>First Name</h3>
-  <%= @user.name %>
+  <%= @user.fname %>
   <h3>Last Name</h3>
+  <%= @user.lname %>
   <h3>Email</h3>
   <%= @user.email %>
-  <%= button_to 'Edit User Info', edit_user_path, :class => 'btn btn-primary btn-block', :method => :get %>
+  <%= button_to 'Edit User Info', edit_user_path(current_user), :class => 'btn btn-primary btn-block', :method => :get %>
 </div>
 
 <div class='col'>
