@@ -3,8 +3,8 @@ class User < ApplicationRecord
     attr_accessor :remember_token, :activation_token
     before_save :downcase_email
     before_create :create_activation_digest
-    validates :fname, presence: true, length: { maximum: 50, minimum: 4}
-    validates :lname, presence: true, length: { maximum: 50, minimum: 4}
+    validates :fname, presence: true, length: { maximum: 50, minimum: 1}
+    validates :lname, presence: true, length: { maximum: 50, minimum: 1}
     UNCC_EMAIL_REGEX = /\A[\w+\-.]+@uncc\.edu\z/i
     validates :email, presence: true, length: { maximum: 255 },
         format: { with: UNCC_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
