@@ -14,12 +14,16 @@
             <%= @listing.condition %>
         </div>
         
+        <% if logged_in? %>
+            <div class="m-2">
+                <h4>Contact Email</h4>
+                <%= mail_to @listing.email, @listing.email, :subject => @listing.title %>
+            </div>
+        <% end %>
+        
         <div class="row justify-content-center m-2">
           <div class="col">
             <%= button_to 'Back', root_path, method: :get, :class => 'btn btn-outline-primary btn-block' %>
-          </div>
-          <div class="col">
-            <%= button_to 'Contact', about_path, :class => "btn btn-primary btn-block" %>
           </div>
         </div>
     </div>
