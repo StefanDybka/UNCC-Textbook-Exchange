@@ -6,11 +6,10 @@
 
 <div class="row w-50 justify-content-center pt-4">
   <div class="w-100">
-    <%= form_for(@user = User.find(params[:id])) do |f| %>
+    <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
       <%= render 'shared/error_messages' %>
       
-      <%= f.label :password, 'Old Password', class: 'pt-2' %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= hidden_field_tag :email, @user.email %>
       
       <%= f.label :password, 'New Password', class: 'pt-2' %>
       <%= f.password_field :password, class: 'form-control' %>

@@ -9,7 +9,7 @@
     <%= form_for(:password_reset, url: password_resets_path) do |f| %>
 
       <%= f.label :email %>
-      <%= f.password_field :email, class: 'form-control' %>
+      <%= f.text_field :email, class: 'form-control' %>
 
       <%= f.submit "Send Email", class: "btn btn-primary btn-block mt-3" %>
     <% end %>
