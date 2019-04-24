@@ -6,16 +6,12 @@
 
 <div class="row w-50 justify-content-center pt-4">
   <div class="w-100">
-    <%= form_for(@user = User.find(params[:id])) do |f| %>
-      <%= render 'shared/error_messages' %>
+    <%= form_for(:password_reset, url: password_resets_path) do |f| %>
 
-      <%= f.label :password, 'New Password', class: 'pt-2' %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.label :email %>
+      <%= f.password_field :email, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirm Password", class: 'pt-2' %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "Reset Password", class: "btn btn-primary btn-block mt-3" %>
+      <%= f.submit "Send Email", class: "btn btn-primary btn-block mt-3" %>
     <% end %>
   </div>
 </div>
