@@ -7,10 +7,12 @@
 
 <div class="row justify-content-center w-100">
     <div class="justify-content-center w-50">
-        <div class="m-2">
-            <h4>ISBN</h4>
-            <%= @listing.isbn %>
-        </div>
+        <% if not @listing.isbn.blank? %>
+            <div class="m-2">
+                <h4>ISBN</h4>
+                <%= @listing.isbn %>
+            </div>
+        <% end %>
     
         <div class="m-2">
             <h4>Condition</h4>
@@ -24,7 +26,7 @@
             </div>
         <% end %>
         
-        <% if not @listing.comments.nil? %>
+        <% if not @listing.comments.blank? %>
             <div class="m-2">
                 <h4>Comments</h4>
                 <%= @listing.comments %>
