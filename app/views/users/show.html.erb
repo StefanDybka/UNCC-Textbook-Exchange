@@ -9,7 +9,7 @@
   <h5 style="margin: 10px 0px 0px 0px">Email</h5>
   <%= @user.email %>
   <%= button_to 'Edit User Info', edit_user_path(current_user), :class => 'btn btn-primary btn-block mt-2', :method => :get %>
-  <%= button_to 'Change Your Password', edit_password_reset_path(current_user), :class => 'btn btn-primary btn-block mt-2', :method => :get %>
+  <%= button_to 'Change Your Password', change_password_url, :class => 'btn btn-primary btn-block mt-2', :method => :get %>
   <%= button_to 'Delete Account', current_user, :class => 'btn btn-primary btn-block mt-2', :method => :delete, data: {confirm: "Are you sure you want to delete your user account?" } %>
 </div>
 

@@ -10,10 +10,7 @@ Rails.application.routes.draw do
   get   '/login', to: 'sessions#new'
   post  '/login', to: 'sessions#create'
   delete'/logout',to: 'sessions#destroy'
-  get   'password_resets/new'
-  get   'password_resets/edit'
-  root  'welcome#index'
-  get   'welcome/index'
+  get   'change_password', to: 'users#change_password'
 
   resources :listings
   resources :users

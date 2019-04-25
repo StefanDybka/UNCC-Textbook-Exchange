@@ -44,6 +44,12 @@ class UsersController < ApplicationController
     flash[:success] = "User account succesfully deleted."
     redirect_to root_path
   end
+  
+  def change_password
+    @user = User.find_by(id: current_user)
+    @user.create_reset_digest
+    redirect_to edit_password_reset_url(@user.reset_token, email: @user.email)
+  end
 
   private
     def user_params
