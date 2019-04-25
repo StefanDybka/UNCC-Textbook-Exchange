@@ -22,6 +22,7 @@ class ListingsController < ApplicationController
             @listing.email = current_user.email
             
             if @listing.save
+                flash[:success] = "Listing succesfully created."
                 redirect_to @listing
             else
                 render 'new'

@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     log_out if logged_in?
     @user.destroy
-    flash[:sucess] = "User account succesfully deleted."
+    flash[:success] = "User account succesfully deleted."
     redirect_to root_path
   end
 
