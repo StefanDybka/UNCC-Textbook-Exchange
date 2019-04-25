@@ -10,6 +10,8 @@ class ReportsController < ApplicationController
         @report = Report.new(report_params)
         
         if @report.save
+            flash[:success] = "Thank you! We will look into your report and be
+            in contact soon."
             redirect_to @report
         else
             render 'new'
@@ -36,7 +38,7 @@ end
 
 private 
     def report_params
-        params.require(:report).permit(:name,:email,:reason)
+        params.require(:report).permit(:name, :email, :reason)
     end
     
     def check_cancel

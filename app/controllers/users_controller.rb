@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
   
   def show
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
         if @user.update_attributes(user_params)
             redirect_to user_path
         else
-            flash[:notice] = "There was an error while updating your account"
+            flash[:warning] = "There was an error while updating your account."
             redirect_to edit_user_path
         end
   end
@@ -37,6 +37,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    log_out if logged_in?
+    @user.destroy
+    flash[:success] = "User account succesfully deleted."
+    redirect_to root_path
+  end
 
   private
     def user_params

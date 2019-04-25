@@ -1,17 +1,25 @@
-<p>
-    <strong>Name:</strong>
+<div class="row justify-content-center w-100">
+    <% provide(:title, "Reports") %>
+  <h1 class="text-primary">Thank you for your Report!</h1>
+</div>
+
+<div class="row w-100">
+    <h2>Name:  </h2>
+    <br/>
     <%= @report.name %>
-</p>
+</div>
 
-<p>
-    <strong>Email:</strong>
+<div class="row w-100">
+    <h2>Email:  </h2>
+    <br/><br/>
     <%= @report.email %>
-</p>
+</div>
 
-<p>
-    <strong>Reason:</strong>
+<div class="row w-100">
+    <h2>Reason:  </h2>
+    <br/>
     <%= @report.reason %>
-</p>
+</div>
 
 
-<%= link_to 'Report List', reports_path %>
+<%= link_to 'Back to Book Listings', root_url %>

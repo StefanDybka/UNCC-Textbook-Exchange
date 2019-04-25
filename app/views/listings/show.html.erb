@@ -1,21 +1,40 @@
-<div class="row w-100">
-    <h1>Title:</h1>
-    <%= @listing.title %>
+<div class="row justify-content-center w-100">
+    <% provide(:title, @listing.title) %>
+   <h1 class='text-primary'>
+       <%= @listing.title %>
+   </h1>
 </div>
 
-<div class="row w-100">
-    <h1>ISBN:</h1>
-    <%= @listing.isbn %>
-</div>
-
-<div class="row w-100">
-    <h1>Email:</h1>
-    <%= @listing.email %>
-</div>
-
-<div class="row w-100">
-    <h1>Condition:</h1>
-    <%= @listing.condition %>
-</div>
+<div class="row justify-content-center w-100">
+    <div class="justify-content-center w-50">
+        <div class="m-2">
+            <h4>ISBN</h4>
+            <%= @listing.isbn %>
+        </div>
+    
+        <div class="m-2">
+            <h4>Condition</h4>
+            <%= @listing.condition %>
+        </div>
         
-<%= link_to 'Book List', listings_path %>
+        <% if logged_in? %>
+            <div class="m-2">
+                <h4>Contact Email</h4>
+                <%= mail_to @listing.email, @listing.email, :subject => @listing.title %>
+            </div>
+        <% end %>
+        
+        <% if not @listing.comments.nil? %>
+            <div class="m-2">
+                <h4>Comments</h4>
+                <%= @listing.comments %>
+            </div>
+        <% end %>
+
+        <div class="row justify-content-center m-2">
+          <div class="col">
+            <%= button_to 'Back', root_path, method: :get, :class => 'btn btn-outline-primary btn-block' %>
+          </div>
+        </div>
+    </div>
+</div>
