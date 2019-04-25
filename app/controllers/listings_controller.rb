@@ -27,7 +27,7 @@ class ListingsController < ApplicationController
                 render 'new'
             end
         else
-            flash.now[:danger] = 'You must be logged in to perform that action'
+            flash.now[:danger] = 'You must be logged in to perform that action.'
             redirect_to listings_path
         end
     end

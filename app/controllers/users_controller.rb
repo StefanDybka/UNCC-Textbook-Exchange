@@ -21,7 +21,7 @@ class UsersController < ApplicationController
         if @user.update_attributes(user_params)
             redirect_to user_path
         else
-            flash[:notice] = "There was an error while updating your account"
+            flash[:warning] = "There was an error while updating your account."
             redirect_to edit_user_path
         end
   end
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     log_out if logged_in?
     @user.destroy
-    flash[:sucess] = "User account deleted"
+    flash[:sucess] = "User account succesfully deleted."
     redirect_to root_path
   end
 

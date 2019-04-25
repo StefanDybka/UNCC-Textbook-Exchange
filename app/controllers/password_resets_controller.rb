@@ -10,10 +10,10 @@ class PasswordResetsController < ApplicationController
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
-      flash[:info] = "Email sent with password reset instructions"
+      flash[:info] = "Email sent with password reset instructions."
       redirect_to root_path
     else
-      flash.now[:danger] = "That email is not associate with an account"
+      flash.now[:danger] = "That email is not associated with an account."
       render new_password_reset_path
     end
   end
