@@ -24,6 +24,13 @@
             </div>
         <% end %>
         
+        <% if not @listing.comments.nil? %>
+            <div class="m-2">
+                <h4>Comments</h4>
+                <%= @listing.comments %>
+            </div>
+        <% end %>
+
         <div class="row justify-content-center m-2">
           <div class="col">
             <%= button_to 'Back', root_path, method: :get, :class => 'btn btn-outline-primary btn-block' %>

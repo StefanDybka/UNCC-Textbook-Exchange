@@ -47,7 +47,7 @@ end
 
 private 
     def listings_params
-        params.require(:listing).permit(:title, :isbn, :condition, :search)
+        params.require(:listing).permit(:title, :isbn, :condition, :comments, :search)
     end
 
     def check_cancel
