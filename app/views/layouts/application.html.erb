@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UnccTextbookExchange</title>
+    <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -31,12 +31,20 @@
         </ul>
       </div>
     </nav>
-
-  <div class="container">
-    <!-- Main Page -->
-    <div class="row shadow bg-white justify-content-center p-3 m-4">
-      <%= yield %>
+    
+    
+    <div class="container">
+      <!-- Flash Messages -->
+      <% flash.each do |message_type, message| %>
+        <div class='alert alert-<%= message_type %> mt-2'>
+          <%= message %>
+        </div>
+      <% end %>
+      
+      <!-- Main Page -->
+      <div class="row shadow bg-white justify-content-center p-3 m-4">
+        <%= yield %>
+      </div>
     </div>
-  </div>
   </body>
 </html>

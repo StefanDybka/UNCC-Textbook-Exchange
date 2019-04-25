@@ -12,15 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_04_23_200532) do
 
-  create_table "listings", force: :cascade do |t|
-    t.string "title"
-    t.string "isbn"
-    t.string "email"
-    t.string "condition"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-  end
+
+# Could not dump table "listings" because of following StandardError
+#   Unknown type 'body' for column 'comments'
 
   create_table "reports", force: :cascade do |t|
     t.string "name"
@@ -42,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_04_23_200532) do
     t.datetime "activated_at"
     t.string "lname"
     t.boolean "admin", default: false
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
