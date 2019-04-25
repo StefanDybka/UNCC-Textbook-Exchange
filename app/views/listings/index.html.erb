@@ -2,28 +2,27 @@
   <% provide(:title, "Listings") %>
   <h1 class="text-primary">Book Listings</h1>
 </div>
-    
-<div class="row justify-content-center">
-  <div class="row w-100">
-    <%= form_tag(listings_path, method: :get , :class => 'w-100') do %>
-      <%= text_field_tag :search, params[:search], :placeholder => "Search Listings", :class => "form-control mb-2" %>
-    <% end %>
-  </div>
-      
-  <div class="row w-100 m-0">
-    <div class="table-responsive">
-      <table class="table table-bordered table-hover table-condensed">
-        <thead class="thead-light">
-          <tr>
-            <th>Title</th>
-            <th>ISBN</th>
-            <th>Condition</th>
-            <th></th>
-          </tr>
-        </thead>
   
-        <%= render @listings %>
-      </table>
-    </div>
+<div class="row w-100">
+  <%= form_tag(listings_path, method: :get , :class => 'w-100') do %>
+    <%= text_field_tag :search, params[:search], :placeholder => "Search Listings", :class => "form-control mb-2" %>
+  <% end %>
+</div>
+    
+<div class="row w-100 m-0">
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover table-condensed">
+      <thead class="thead-light">
+        <tr>
+          <th>Title</th>
+          <th>ISBN</th>
+          <th>Condition</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <%= render @listings %>
+    </table>
   </div>
 </div>
+  
