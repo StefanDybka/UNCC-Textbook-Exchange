@@ -22,12 +22,13 @@ class ListingsController < ApplicationController
             @listing.email = current_user.email
             
             if @listing.save
+                flash[:success] = "Listing succesfully created."
                 redirect_to @listing
             else
                 render 'new'
             end
         else
-            flash.now[:danger] = 'You must be logged in to perform that action'
+            flash.now[:danger] = 'You must be logged in to perform that action.'
             redirect_to listings_path
         end
     end
@@ -46,7 +47,7 @@ end
 
 private 
     def listings_params
-        params.require(:listing).permit(:title, :isbn, :condition, :search)
+        params.require(:listing).permit(:title, :isbn, :condition, :comments, :search)
     end
 
     def check_cancel

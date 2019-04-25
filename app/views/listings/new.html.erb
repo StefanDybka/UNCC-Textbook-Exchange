@@ -1,6 +1,6 @@
 <div class="row justify-content-center w-100">
   <% provide(:title, "New Listing") %>
-   <h1 class='text-primary'>New Textbook Listing</h1>
+  <h1 class='text-primary'>New Textbook Listing</h1>
 </div>
     
 <div class="row justify-content-center w-100">
@@ -29,9 +29,30 @@
     </div>
   
     <div class="m-2">
-      <%= f.label :condition %><br>
-      <%= f.text_field :condition, :class => 'w-100' %>
+      <div class="radio">
+        <%= f.label :condition %><br>
+        <%= f.radio_button(:condition, "Perfect", :checked => true) %>
+        <%= label_tag(:condition_perfect, "Perfect") %>
+      </div>
+      <div class="radio">
+        <%= f.radio_button(:condition, "Good") %>
+        <%= label_tag(:condition_good, "Good") %>
+      </div>
+      <div class="radio">
+        <%= f.radio_button(:condition, "Worn") %>
+        <%= label_tag(:condition_worn, "Worn") %>
+      </div>
+      <div class="radio">
+        <%= f.radio_button(:condition, "Poor") %>
+        <%= label_tag(:condition_poor, "Poor") %>
+      </div>
     </div>
+    
+    <div class="m-2">
+      <%= f.label :comments %><br>
+      <%= f.text_area :comments, :class => 'form-control' %>
+    </div>
+
   
     <div class="row justify-content-center m-2">
       <div class="col">
