@@ -14,6 +14,22 @@ class ListingsController < ApplicationController
         end
     end
     
+    def edit
+        @listing = Listing.find(params[:id])
+    end
+    
+    def update
+         @listing = Listing.find(params[:id])
+        
+        if @listing.update_attributes(listings_params)
+            flash[:success] = "Listing succesfully updated"
+            redirect_to user_path(current_user)
+        else
+            flash[:warning] = "There was an error while updating your listing."
+            redirect_to edit_listing_path
+        end
+    end
+    
     def create
         if logged_in?
 
@@ -52,6 +68,6 @@ private
 
     def check_cancel
         if params[:commit] == "Back"
-            redirect_to root_url
+            redirect_to listings_url
         end
     end

@@ -1,8 +1,12 @@
   <tr class="clickable-row">
-    <td><%= link_to listing.title, listing_path(listing) %></td>
+    <% if !current_user.nil? && listing.user_id == current_user.id %>
+      <td><%= link_to listing.title, edit_listing_path(listing) %></td>
+    <% else %>
+      <td><%= link_to listing.title, listing_path(listing) %></td>
+    <% end %>
     <td><%= listing.isbn %></td>
     <td><%= listing.condition %></td>
-    <% if !current_user.nil? && listing.email == current_user.email %>
+    <% if !current_user.nil? && listing.user_id == current_user.id %>
       <td><%= link_to 'Delete', listing_path(listing), method: :delete, 
                 data: { confirm: 'Are you sure?'} %></td>
     <% else %>
