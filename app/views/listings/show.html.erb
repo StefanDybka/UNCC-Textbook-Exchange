@@ -30,7 +30,14 @@
                 <%= @listing.comments %>
             </div>
         <% end %>
+        
+        
 
+        <div class="row justify-content-center m-2">
+          <div class="col">
+            <%= button_to 'Report', new_report_path, method: :get,  :class => 'btn btn-outline-primary btn-block' %>
+          </div>
+        </div>
         <div class="row justify-content-center m-2">
           <div class="col">
             <%= button_to 'Back', root_path, method: :get, :class => 'btn btn-outline-primary btn-block' %>

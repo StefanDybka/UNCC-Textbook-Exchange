@@ -3,30 +3,30 @@
    <h1 class='text-primary'>New Report</h1>
 </div>
 
-<%= form_for :report, url: reports_path do |f| %>
-
-
-<div class="m-2">
-      <%= f.label :name %><br>
-      <%= f.text_field :name, :class => 'w-100' %>
-</div>
-
-<div class="m-2">
-      <%= f.label :email %><br>
-      <%= f.text_field :email, :class => 'w-100' %>
-</div>
-
-<div class="m-2">
-      <%= f.label :reason %><br>
-      <%= f.text_field :reason, :class => 'w-100' %>
-</div>
-
-<br/>
-<div class="row justify-content-center m-2">
-      <div class="col">
-        <%= f.submit :Report, :class => "btn btn-outline-primary btn-block" %>
+<div class="row justify-content-center w-100">
+      <%= form_for :report, :html => {:class => "justify-content-center w-50" }, url: reports_path do |f| %>
+            <% if @report.errors.any? %>
+              <h4>
+                <%= pluralize(@report.errors.count, "error") %> prohibited
+                    this report from being saved:
+              </h4>
+                  <ul>
+                    <% @report.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                    <% end %>
+                  </ul>
+            <% end %>
+          
+      <div class="m-2">
+            <%= f.label :reason %><br>
+            <%= f.text_field :reason, :class => 'w-100' %>
       </div>
+      
+      <br/>
+      <div class="row justify-content-center m-2">
+            <div class="col">
+              <%= f.submit :Report, :class => "btn btn-outline-primary btn-block" %>
+            </div>
+      </div>
+      <% end %>
 </div>
-
-
-<% end %>

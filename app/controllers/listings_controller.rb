@@ -18,7 +18,6 @@ class ListingsController < ApplicationController
         if logged_in?
 
             @listing = current_user.listings.build(listings_params)
-            
             @listing.email = current_user.email
             
             if @listing.save

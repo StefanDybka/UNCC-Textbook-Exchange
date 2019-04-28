@@ -1,20 +1,28 @@
 class ReportsController < ApplicationController
     
-    
-    
     def new
         @report = Report.new
     end
     
     def create
-        @report = Report.new(report_params)
+        if logged_in?
+            @report = Report.new(report_params)
+            
+            #@report = listings_url.reports.build(report_params)
         
-        if @report.save
-            flash[:success] = "Thank you! We will look into your report and be
-            in contact soon."
-            redirect_to @report
+            @report.name = current_user.fname + " " + current_user.lname
+            @report.email = current_user.email
+        
+            if @report.save
+                flash[:success] = "Thank you! We will look into your report and be
+                in contact soon."
+                redirect_to @report
+            else
+                render 'new'
+            end
         else
-            render 'new'
+            flash[:danger] = 'You must be logged in to perform that action.'
+            redirect_to listings_path
         end
     end
     

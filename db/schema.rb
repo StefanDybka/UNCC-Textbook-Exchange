@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_23_200532) do
-
+ActiveRecord::Schema.define(version: 2019_04_25_024440) do
 
 # Could not dump table "listings" because of following StandardError
 #   Unknown type 'body' for column 'comments'
