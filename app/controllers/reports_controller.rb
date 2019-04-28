@@ -6,10 +6,10 @@ class ReportsController < ApplicationController
     
     def create
         if logged_in?
-            @report = Report.new(report_params)
+            @report = @listing.reports.build(report_params)
             
-            #@report = listings_url.reports.build(report_params)
-        
+            # @report = @listing.reports.create(report_params)
+            # @report = Report.new(report_params)
             @report.name = current_user.fname + " " + current_user.lname
             @report.email = current_user.email
         
