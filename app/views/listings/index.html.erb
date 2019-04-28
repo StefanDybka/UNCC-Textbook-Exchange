@@ -2,7 +2,6 @@
   <% provide(:title, "Listings") %>
   <h1 class="text-primary">Book Listings</h1>
 </div>
-    
 
 <div class="row w-100 m-0">
   <div class="table-responsive">
@@ -12,7 +11,9 @@
           <th>Title</th>
           <th>ISBN</th>
           <th>Condition</th>
-          <th></th>
+          <% if logged_in? %>
+            <th></th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
