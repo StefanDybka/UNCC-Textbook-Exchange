@@ -19,7 +19,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
         
         if @user.update_attributes(user_params)
-            redirect_to user_path
+          flash[:success] = "Successfuly updated your user info"
+          redirect_to user_path
         else
             flash[:warning] = "There was an error while updating your account."
             redirect_to edit_user_path
@@ -43,6 +44,12 @@ class UsersController < ApplicationController
     @user.destroy
     flash[:success] = "User account succesfully deleted."
     redirect_to root_path
+  end
+  
+  def change_password
+    @user = User.find_by(id: current_user)
+    @user.create_reset_digest
+    redirect_to edit_password_reset_url(@user.reset_token, email: @user.email)
   end
 
   private

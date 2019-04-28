@@ -5,42 +5,40 @@
    </h1>
 </div>
 
-<div class="row justify-content-center w-100">
-    <div class="justify-content-center w-50">
-        <div class="m-2">
-            <h4>ISBN</h4>
-            <%= @listing.isbn %>
-        </div>
+<div class='row w-100 pb-2'>
+    <div class= 'col-4 m-1 border' style="background-color:#e9ecef; border-color: #dee2e6">
+        <% if not @listing.isbn.blank? %>
+            <div class="m-2">
+                <h4>ISBN</h4>
+                <%= @listing.isbn %>
+            </div>
+        <% end %>
     
         <div class="m-2">
             <h4>Condition</h4>
             <%= @listing.condition %>
         </div>
         
-        <% if logged_in? %>
-            <div class="m-2">
-                <h4>Contact Email</h4>
-                <%= mail_to @listing.email, @listing.email, :subject => @listing.title %>
-            </div>
-        <% end %>
-        
-        <% if not @listing.comments.nil? %>
+        <% if not @listing.comments.blank? %>
             <div class="m-2">
                 <h4>Comments</h4>
                 <%= @listing.comments %>
             </div>
         <% end %>
-        
-        
+    </div>
 
-        <div class="row justify-content-center m-2">
-          <div class="col">
-            <%= button_to 'Report', new_report_path, method: :get,  :class => 'btn btn-outline-primary btn-block' %>
-          </div>
-        </div>
-        <div class="row justify-content-center m-2">
-          <div class="col">
-            <%= button_to 'Back', root_path, method: :get, :class => 'btn btn-outline-primary btn-block' %>
+    <div class='col justify-content-center d-flex align-items-center'>
+        <% if logged_in? %>
+            
+        <% else %>
+            <p class='text-center'><%= link_to 'Log in', '/login', :class => 'text-primary' %> to send a message about this listing</p>
+        <% end %>
+    </div>
+</div>
+
+        <div class="row justify-content-center w-100">
+          <div class="col w-50">
+            <%= button_to 'Back', listings_url, method: :get, :class => 'btn btn-outline-primary btn-block' %>
           </div>
         </div>
     </div>

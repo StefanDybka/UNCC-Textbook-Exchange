@@ -7,10 +7,22 @@ class ListingsController < ApplicationController
     end
     
     def index
-        if params[:search]
-            @listings = Listing.where('title LIKE ?', "%#{params[:search]}%").or(Listing.where('ISBN LIKE ?', "%#{params[:search]}%"))
+        @listings = Listing.all
+    end
+    
+    def edit
+        @listing = Listing.find(params[:id])
+    end
+    
+    def update
+         @listing = Listing.find(params[:id])
+        
+        if @listing.update_attributes(listings_params)
+            flash[:success] = "Listing succesfully updated"
+            redirect_to user_path(current_user)
         else
-            @listings = Listing.all
+            flash[:warning] = "There was an error while updating your listing."
+            redirect_to edit_listing_path
         end
     end
     
@@ -51,6 +63,6 @@ private
 
     def check_cancel
         if params[:commit] == "Back"
-            redirect_to root_url
+            redirect_to listings_url
         end
     end
