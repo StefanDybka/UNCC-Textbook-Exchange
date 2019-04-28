@@ -35,6 +35,8 @@ en:
       user:
         fname: "First name"
         lname: "Last name"
+      listing:
+        isbn: "ISBN"
     errors:
       models:
         user:
