@@ -12,6 +12,8 @@
     <td><%= link_to 'Delete', listing_path(listing), method: :delete, 
         data: { confirm: 'Are you sure?'} %></td>
   <% else %>
-    <td><%= link_to 'Report', new_report_path(listing) %></td>
+    <% if logged_in? %>
+      <td><%= link_to 'Report', new_report_path(listing) %></td>
+    <% end %>
   <% end %>
 </tr>

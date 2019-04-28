@@ -11,7 +11,9 @@
           <th>Title</th>
           <th>ISBN</th>
           <th>Condition</th>
-          <th></th>
+          <% if logged_in? %>
+            <th></th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
