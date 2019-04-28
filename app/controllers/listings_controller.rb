@@ -7,11 +7,7 @@ class ListingsController < ApplicationController
     end
     
     def index
-        if params[:search]
-            @listings = Listing.where('title LIKE ?', "%#{params[:search]}%").or(Listing.where('ISBN LIKE ?', "%#{params[:search]}%"))
-        else
-            @listings = Listing.all
-        end
+        @listings = Listing.all
     end
     
     def edit
