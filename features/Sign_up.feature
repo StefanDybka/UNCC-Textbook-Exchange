@@ -3,7 +3,7 @@ Feature: Sign up
   As a user
   I want proper warnings on the sign up page
   
-  Scenario: As a user I want to not be able to sign up with empty fields
+  Scenario: As a user I want to see warning when fields are empty
    Given I am on the home page
     Then I see the "UNCC Textbook Exchange" page
     When I click on the "Log In" btn
@@ -20,7 +20,7 @@ Feature: Sign up
     Then I see the "Password can't be blank" Text
 
 
-    Scenario: As a user I don't want to enter an invalid password
+    Scenario: As a user I want proper warnings for invalid passwords
     Given I am on the home page
     Then I see the "UNCC Textbook Exchange" page
     When I click on the "Log In" btn
