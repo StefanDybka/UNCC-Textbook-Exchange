@@ -1,4 +1,4 @@
-Feature: View home page
+Feature: home page
   
   As a user
   I want to view the homepage and use main buttons
