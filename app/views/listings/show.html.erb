@@ -32,6 +32,9 @@
           <div class="col w-50">
             <%= button_to 'Back', listings_url, method: :get, :class => 'btn btn-outline-primary btn-block' %>
           </div>
+          <div class="col w-50">
+            <%= button_to 'Message', new_listing_message_url(@listing), method: :get, :class => 'btn btn-primary btn-block' %>
+          </div>
         </div>
     </div>
 </div>
