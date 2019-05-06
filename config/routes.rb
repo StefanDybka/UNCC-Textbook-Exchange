@@ -11,14 +11,14 @@ Rails.application.routes.draw do
   post  '/login', to: 'sessions#create'
   delete'/logout',to: 'sessions#destroy'
   get   'change_password', to: 'users#change_password'
+  get   'reports',  to: 'reports#index'
 
   resources :listings do
     resources :messages
+    resources :reports
   end
   
   resources :users
-  resources :reports
-  
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
 

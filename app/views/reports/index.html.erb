@@ -7,22 +7,22 @@
   <table id="dttb" class="table table-bordered table-hover table-condensed">
     <thead class='thead-light'>
       <tr>
-        <th>Name</th>
+        <th>Reporter</th>
         <th>Email</th>
         <th>Reason</th>
-        <th></th>
+        <th>Listing</th>
         <th></th>
       </tr>
     </thead>
    <tbody>
-    <% @reports.each do |report| %>
+    <% Report.all.each do |report| %>
       <tr>
         <td><%= report.name %></td>
         <td><%= report.email %></td>
         <td><%= report.reason %></td>
-        <td><%= link_to 'Show', report_path(report) %></td>
+        <td><%= link_to Listing.find(report.listing_id).title, listing_path(report.listing_id) %></td>
         <td><%= link_to 'Delete', 
-          report_path(report), 
+          listing_report_path(Listing.find(report.listing_id), report),
           method: :delete, 
           data: { confirm: 'Are you sure?'} %>
         </td>
