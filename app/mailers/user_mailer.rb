@@ -20,4 +20,9 @@ class UserMailer < ApplicationMailer
 
     mail to: user.email, subject: "Password reset"
   end
+  
+  def send_message(user)
+    @user = user
+    mail to :user.email, subject: "Interest in your listing"
+  end
 end
