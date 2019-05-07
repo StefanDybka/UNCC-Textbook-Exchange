@@ -1,5 +1,7 @@
 class ReportsController < ApplicationController
     
+    before_action :check_cancel, :only => [:create]
+    
     def new
         @report = Report.new
     end
@@ -45,6 +47,6 @@ private
     
     def check_cancel
         if params[:commit] == "Back"
-            redirect_to root_url
+            redirect_to :back
         end
     end
