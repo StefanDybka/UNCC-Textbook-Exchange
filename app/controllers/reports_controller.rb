@@ -1,5 +1,7 @@
 class ReportsController < ApplicationController
     
+    before_action :check_cancel, :only => [:create]
+    
     def new
         @report = Report.new
     end
@@ -8,7 +10,7 @@ class ReportsController < ApplicationController
         if logged_in?
 
             @listing = Listing.find(params[:listing_id])
-            @report = @listing.reports.build(params[:reason])
+            @report = @listing.reports.build(report_params)
             @report.name = current_user.fname + " " + current_user.lname
             @report.email = current_user.email
         
@@ -41,11 +43,11 @@ end
 
 private 
     def report_params
-        params.require(:reports).permit(:reason, :listing_id)
+        params.require(:report).permit(:reason, :listing_id)
     end
     
     def check_cancel
         if params[:commit] == "Back"
-            redirect_to root_url
+            redirect_to :back
         end
     end

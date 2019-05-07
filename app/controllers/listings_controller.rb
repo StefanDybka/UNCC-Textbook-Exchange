@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
     
-    before_action :check_cancel, :only => [:create]
+    before_action :check_cancel, :only => [:create, :edit]
     
     def new
         @listing = Listing.new
@@ -68,6 +68,6 @@ private
 
     def check_cancel
         if params[:commit] == "Back"
-            redirect_to listings_url
+            redirect_back fallback_location: listings_url
         end
     end
