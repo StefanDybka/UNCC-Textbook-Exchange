@@ -1,0 +1,42 @@
+<% if logged_in? %>
+    <%= form_for :message, :html => { :class => "justify-content-center w-100" }, url: listing_messages_path do |f| %>
+        <% if @listing.errors.any? %>
+            <h4>
+              <%= pluralize(@listing.errors.count, "error") %> prohibited
+                  this article from being saved:
+            </h4>
+            <ul>
+                <% @listing.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        <% end %>
+          
+        <div class='w-75 m-auto'>
+            <p class='mt-2 text-center'>
+                If you are interested in this textbook, you can message the listing holder here.
+                Don't worry about sending your contact information, we'll handle making sure they know how to get back to you.
+            </p>
+  
+            <div class="pl-2 pr-2 bg-secondary">
+                <p>
+                    Hello,
+                </p>
+                
+                <div class='p-1'>
+                    <%= f.text_area :message, :class => 'w-100' %>
+                </div>
+                
+                <p>
+                    Thank you for your time,<br>
+                    <%= current_user.fname %><br>
+                    <%= current_user.email %><br>
+                </p>
+            </div>
+        
+            <%= f.submit "Send Message", class: "btn btn-primary btn-block" %>
+        </div>
+    <% end %>
+<% else %>
+    <p class='text-center'><%= link_to 'Log in', '/login', :class => 'text-primary' %> to send a message about this listing</p>
+<% end %>

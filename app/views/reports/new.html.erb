@@ -4,7 +4,7 @@
 </div>
 
 <div class="row justify-content-center w-100">
-      <%= form_for :report, :html => {:class => "justify-content-center w-50" }, url: reports_path do |f| %>
+      <%= form_for :reports, :html => {:class => "justify-content-center w-50" }, url: listing_reports_path do |f| %>
             <% if @report.errors.any? %>
               <h4>
                 <%= pluralize(@report.errors.count, "error") %> prohibited

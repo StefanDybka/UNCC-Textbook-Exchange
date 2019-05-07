@@ -6,19 +6,16 @@ class ReportsController < ApplicationController
     
     def create
         if logged_in?
-            @listing = Listing.find_by(params[:isbn])
-            @report = @listing.reports.build(report_params)
-            
-            #  @report = @listing.reports.build(report_params)
-            
-            # @report = Report.new(report_params)
+
+            @listing = Listing.find(params[:listing_id])
+            @report = @listing.reports.build(params[:reason])
             @report.name = current_user.fname + " " + current_user.lname
             @report.email = current_user.email
         
             if @report.save
                 flash[:success] = "Thank you! We will look into your report and be
                 in contact soon."
-                redirect_to @report
+                redirect_to listings_path
             else
                 render 'new'
             end
@@ -32,15 +29,11 @@ class ReportsController < ApplicationController
         @reports = Report.all
     end
     
-    def show
-        @report = Report.find(params[:id])
-    end
-    
     def destroy
         @report = Report.find(params[:id])
         @report.destroy
         
-        redirect_to reports_path
+        redirect_to listing_reports_path
     end
     
 end
@@ -48,7 +41,7 @@ end
 
 private 
     def report_params
-        params.require(:report).permit(:name, :email, :reason)
+        params.require(:reports).permit(:reason, :listing_id)
     end
     
     def check_cancel
