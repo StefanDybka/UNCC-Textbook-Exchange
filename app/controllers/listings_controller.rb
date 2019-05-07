@@ -63,6 +63,6 @@ private
 
     def check_cancel
         if params[:commit] == "Back"
-            redirect_back fallback_location: listings_url
+            redirect_to listings_url
         end
     end

@@ -47,6 +47,6 @@ private
     
     def check_cancel
         if params[:commit] == "Back"
-            redirect_to :back
+            redirect_to listings_url
         end
     end

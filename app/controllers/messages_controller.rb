@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+    before_action :check_cancel, :only => [:create]
     def create
         @listing = Listing.find(params[:listing_id])
         ListingMailer.send_message(current_user, @listing, params[:message][:message]).deliver
@@ -10,3 +11,10 @@ class MessagesController < ApplicationController
         @listing = Listing.find(params[:listing_id])
     end
 end
+
+private
+    def check_cancel
+        if params[:commit] == "Back"
+            redirect_to listing_path(params[:listing_id])
+        end
+    end
