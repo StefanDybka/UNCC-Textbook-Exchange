@@ -54,9 +54,18 @@ class ListingsController < ApplicationController
         
         redirect_to listings_path
     end
+    
+    def current_listing
+      @listing = Listing.find(params[:id])
+    end
 end
 
+
 private 
+    def has_reports?
+        return @listing.reports.count != 0
+    end
+    
     def listings_params
         params.require(:listing).permit(:title, :isbn, :condition, :comments)
     end

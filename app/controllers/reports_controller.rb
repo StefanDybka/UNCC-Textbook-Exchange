@@ -8,6 +8,7 @@ class ReportsController < ApplicationController
     
     def create
         if logged_in?
+
             @listing = Listing.find(params[:listing_id])
             @report = @listing.reports.build(report_params)
             @report.name = current_user.fname + " " + current_user.lname
