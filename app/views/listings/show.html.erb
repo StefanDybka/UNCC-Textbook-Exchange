@@ -5,12 +5,19 @@
    </h1>
 </div>
 
+    <% if has_reports? %>
+    <div class="w-100 p-3">
+            <div class="alert alert-danger">
+                    Careful! This listing has <%= @listing.reports.count %> 
+                    reports. Use extra caution.
+            </div>
+        </div>
+    <% end %>
+
 <div class='row w-50 pb-2'>
     <div class= 'col-4'>
         
-        <div class="m-2">
-            <%= @listing.reports.count %>
-        </div>
+        
         <% if not @listing.isbn.blank? %>
             <div class="m-2">
                 <h4>ISBN</h4>
