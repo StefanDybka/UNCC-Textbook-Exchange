@@ -7,6 +7,10 @@
 
 <div class='row w-50 pb-2'>
     <div class= 'col-4'>
+        
+        <div class="m-2">
+            <%= @listing.reports.count %>
+        </div>
         <% if not @listing.isbn.blank? %>
             <div class="m-2">
                 <h4>ISBN</h4>
