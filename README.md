@@ -8,5 +8,5 @@ A fully functioning Ruby on Rails webapplication that handles the exchange of te
 - **Reports:** Users are able to report textbook listings. Reported listings are flagged so other users use extra caution. Admins are able to view reports.
 - **Dynamic View:** Site is styled with [Bootstrap](https://getbootstrap.com/) for a responsive layout.
 
-
-
+## Demo Video
+[![Demo Video](http://img.youtube.com/vi/GXjstgsCXok/0.jpg)](http://www.youtube.com/watch?v=GXjstgsCXok)
