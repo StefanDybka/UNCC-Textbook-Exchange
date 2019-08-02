@@ -9,4 +9,4 @@ A fully functioning Ruby on Rails webapplication that handles the exchange of te
 - **Dynamic View:** Site is styled with [Bootstrap](https://getbootstrap.com/) for a responsive layout.
 
 ## Demo Video
-[![Demo Video](http://img.youtube.com/vi/GXjstgsCXok/0.jpg)](http://www.youtube.com/watch?v=GXjstgsCXok)
+[![Demo Video](https://img.youtube.com/vi/GXjstgsCXok/maxresdefault.jpg)](http://www.youtube.com/watch?v=GXjstgsCXok)
